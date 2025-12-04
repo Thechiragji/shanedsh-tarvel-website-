@@ -1,14 +1,14 @@
-// script.js  (MODULE)
+// scripts/script.js  (module)
 
-// ✅ Firebase imports
+// ===== Firebase imports =====
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
 import {
   getFirestore,
   doc,
-  getDoc
+  getDoc,
 } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
-// ✅ YOUR Firebase config
+// ===== Firebase config =====
 const firebaseConfig = {
   apiKey: "AIzaSyAixaw3PtDNvLEinV3i_c9CUUza27YhzU",
   authDomain: "as-tour-travels.firebaseapp.com",
@@ -16,16 +16,36 @@ const firebaseConfig = {
   storageBucket: "as-tour-travels.appspot.com",
   messagingSenderId: "826916058476",
   appId: "1:826916058476:web:a4193114f04d908cd2ef49",
-  measurementId: "G-38B1S8HMH6"
+  measurementId: "G-38B1S8HMH6",
 };
 
-// Init Firebase + Firestore
+// Init Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-// =================== DOM READY ===================
-document.addEventListener("DOMContentLoaded", function () {
-  // ----- Navbar -----
+// ---- Helper: YouTube ID nikalne ke liye ----
+function extractYoutubeId(input) {
+  if (!input) return "";
+  input = input.trim();
+
+  // Agar http nahi hai & chhota string hai -> direct ID
+  if (!input.includes("http") && input.length <= 20) return input;
+
+  try {
+    const url = new URL(input);
+    if (url.searchParams.get("v")) return url.searchParams.get("v");
+    if (url.pathname.startsWith("/embed/")) return url.pathname.split("/embed/")[1];
+    if (url.pathname.startsWith("/shorts/")) return url.pathname.split("/shorts/")[1];
+    if (url.hostname === "youtu.be") return url.pathname.replace("/", "");
+  } catch (e) {
+    // ignore
+  }
+  return input;
+}
+
+// ===== DOM Ready =====
+document.addEventListener("DOMContentLoaded", () => {
+  // ----- Navbar toggle -----
   const navToggle = document.getElementById("navToggle");
   const navMenu = document.getElementById("navMenu");
 
@@ -39,13 +59,13 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // ----- Footer year -----
+  // ----- Footer Year -----
   const yearSpan = document.getElementById("year");
   if (yearSpan) {
     yearSpan.textContent = new Date().getFullYear();
   }
 
-  // ----- LocalStorage helper for leads -----
+  // ----- LocalStorage helpers for leads -----
   function getLeads() {
     try {
       return JSON.parse(localStorage.getItem("as_travel_leads") || "[]");
@@ -75,7 +95,7 @@ document.addEventListener("DOMContentLoaded", function () {
     window.open(url, "_blank");
   }
 
-  // ----- Quick Enquiry form -----
+  // ----- Quick Enquiry Form -----
   const quickForm = document.getElementById("quickEnquiryForm");
   if (quickForm) {
     quickForm.addEventListener("submit", (e) => {
@@ -107,7 +127,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // ----- Main lead form -----
+  // ----- Main Lead Form -----
   const leadForm = document.getElementById("leadForm");
   if (leadForm) {
     leadForm.addEventListener("submit", (e) => {
@@ -152,41 +172,54 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // 🔥 Load config (video, footer, background) from Firestore
+  // ----- Firestore se siteConfig load -----
   loadSiteConfig();
 });
 
-// ================= FIRESTORE CONFIG LOADER =================
-
+// ===== Firestore: siteConfig/main =====
 async function loadSiteConfig() {
   try {
     const ref = doc(db, "siteConfig", "main");
     const snap = await getDoc(ref);
 
     if (!snap.exists()) {
-      console.warn("No siteConfig/main doc found in Firestore.");
+      console.warn("siteConfig/main document not found");
       return;
     }
 
     const cfg = snap.data();
 
-    // 1) YouTube Video
-    if (cfg.youtubeVideoId) {
-      const iframe = document.getElementById("mainVideo");
-      if (iframe) {
-        iframe.src = "https://www.youtube.com/embed/" + cfg.youtubeVideoId;
+    // ---- VIDEO LOGIC ----
+    const rawVideoField = (cfg.youtubeVideoId || "").trim();
+    const ytIframe = document.getElementById("ytVideo");
+    const mp4Video = document.getElementById("mp4Video");
+    const mp4Source = document.getElementById("mp4Source");
+
+    if (rawVideoField && (rawVideoField.startsWith("http://") || rawVideoField.startsWith("https://"))) {
+      // Direct video URL (GitHub RAW mp4 etc.)
+      if (mp4Video && mp4Source) {
+        mp4Source.src = rawVideoField;
+        mp4Video.style.display = "block";
+        mp4Video.load();
       }
+      if (ytIframe) ytIframe.style.display = "none";
+    } else if (rawVideoField) {
+      // YouTube ID / URL
+      const vid = extractYoutubeId(rawVideoField);
+      if (ytIframe && vid) {
+        ytIframe.src = "https://www.youtube.com/embed/" + vid;
+        ytIframe.style.display = "block";
+      }
+      if (mp4Video) mp4Video.style.display = "none";
     }
 
-    // 2) Footer text
+    // ---- Footer text ----
     if (cfg.footerText) {
-      const footer = document.getElementById("footerText");
-      if (footer) {
-        footer.textContent = cfg.footerText;
-      }
+      const footerEl = document.getElementById("footerText");
+      if (footerEl) footerEl.textContent = cfg.footerText;
     }
 
-    // 3) Background image
+    // ---- Background image ----
     if (cfg.backgroundImageUrl && cfg.backgroundImageUrl.trim() !== "") {
       document.body.style.backgroundImage = `url('${cfg.backgroundImageUrl}')`;
       document.body.style.backgroundSize = "cover";
