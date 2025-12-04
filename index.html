@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>A S Tour & Travels | Flights · Trains · Bus · Visa · Passport · Cabs</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A S Tour & Travels - Book Flight Tickets, Railway Tickets, Bus Tickets, Visa, Passport, Cab Booking. Fast service and best support on Call & WhatsApp.">
+  <link rel="stylesheet" href="styles.css" />
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-8E8Zx..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+  <!-- ================= NAVBAR =============== -->
+  <header class="header" id="home">
+    <div class="container nav-container">
+      <div class="logo">
+        <span class="logo-mark">AS</span>
+        <div class="logo-text">
+          <div class="logo-title">A S Tour & Travels</div>
+          <div class="logo-sub">Your Travel Partner</div>
+        </div>
+      </div>
+
+      <nav class="nav" id="navMenu">
+        <a href="#home" class="nav-link">Home</a>
+        <a href="#services" class="nav-link">Services</a>
+        <a href="#why-us" class="nav-link">Why Us</a>
+        <a href="#process" class="nav-link">How It Works</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="tel:8602837299" class="btn btn-outline small-btn">
+          <i class="fa-solid fa-phone"></i> Call
+        </a>
+        <a href="https://wa.me/918602837299?text=Hi%20I%20want%20to%20book%20a%20ticket" target="_blank" class="btn small-btn">
+          <i class="fa-brands fa-whatsapp"></i> WhatsApp
+        </a>
+        <button class="nav-toggle" id="navToggle">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= HERO SECTION =============== -->
+  <section class="hero">
+    <div class="container hero-container">
+      <div class="hero-left">
+        <div class="tag-pill">
+          <i class="fa-solid fa-bolt"></i> Fast Booking · Personal Support
+        </div>
+        <h1>All Your Travel Bookings<br><span class="highlight">Handled in One Call</span></h1>
+        <p class="hero-subtitle">
+          Flight Tickets · Railway Tickets · Bus Tickets · Visa · Passport · Cab Booking –  
+          simple, fast and hassle-free. Just share your details and we will book everything for you.
+        </p>
+
+        <div class="hero-cta">
+          <a href="https://wa.me/918602837299?text=Hi%20A%20S%20Tour%20and%20Travels%2C%20I%20want%20to%20book%20a..." class="btn">
+            <i class="fa-brands fa-whatsapp"></i> WhatsApp Now
+          </a>
+          <a href="#contact" class="btn btn-outline">
+            <i class="fa-solid fa-paper-plane"></i> Get Custom Quote
+          </a>
+        </div>
+
+        <div class="hero-trust">
+          <div><i class="fa-solid fa-shield-halved"></i> Genuine Tickets</div>
+          <div><i class="fa-solid fa-clock"></i> Quick Response</div>
+          <div><i class="fa-solid fa-indian-rupee-sign"></i> Best Fare Options</div>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <div class="card enquiry-card">
+          <h2>Quick Enquiry</h2>
+          <p>Share your requirement. We will call/WhatsApp you with best options.</p>
+          <form id="quickEnquiryForm" class="form">
+            <div class="form-group">
+              <label for="q-name">Full Name*</label>
+              <input type="text" id="q-name" required placeholder="Your Name" />
+            </div>
+            <div class="form-group">
+              <label for="q-phone">Mobile Number*</label>
+              <input type="tel" id="q-phone" required placeholder="10-digit mobile number" />
+            </div>
+            <div class="form-group">
+              <label for="q-service">Service Needed*</label>
+              <select id="q-service" required>
+                <option value="">Select</option>
+                <option>Flight Ticket</option>
+                <option>Railway Ticket</option>
+                <option>Bus Ticket</option>
+                <option>Visa</option>
+                <option>Passport</option>
+                <option>Cab Booking</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <button type="submit" class="btn full-width">
+              Send Enquiry
+            </button>
+            <p class="form-note">
+              Or WhatsApp directly at <strong>8602837299</strong>
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SERVICES =============== -->
+  <section class="section" id="services">
+    <div class="container">
+      <div class="section-head">
+        <h2>Our Core <span class="highlight">Services</span></h2>
+        <p>Complete travel solution at one place – we manage booking, documentation and support.</p>
+      </div>
+
+      <div class="grid services-grid">
+        <div class="card service-card">
+          <div class="icon-circle"><i class="fa-solid fa-plane"></i></div>
+          <h3>Flight Ticket Booking</h3>
+          <p>Domestic & International flights with best routing and fare options as per your budget.</p>
+          <ul>
+            <li>One-way / Round-trip / Multi-city</li>
+            <li>Last minute booking support</li>
+            <li>Fare suggestions & alternatives</li>
+          </ul>
+        </div>
+
+        <div class="card service-card">
+          <div class="icon-circle"><i class="fa-solid fa-train"></i></div>
+          <h3>Railway Ticket Booking</h3>
+          <p>IRCTC based railway ticket booking assistance with proper SMS & email confirmations.</p>
+          <ul>
+            <li>AC / Sleeper / Chair Car</li>
+            <li>Tatkal consultation (subject to availability)</li>
+            <li>PNR tracking guidance</li>
+          </ul>
+        </div>
+
+        <div class="card service-card">
+          <div class="icon-circle"><i class="fa-solid fa-bus"></i></div>
+          <h3>Bus Ticket Booking</h3>
+          <p>Private & government buses – sleeper, semi-sleeper, Volvo, AC & Non-AC options.</p>
+          <ul>
+            <li>Multiple operators & timings</li>
+            <li>Seat selection guidance</li>
+            <li>Instant ticket on WhatsApp</li>
+          </ul>
+        </div>
+
+        <div class="card service-card">
+          <div class="icon-circle"><i class="fa-solid fa-passport"></i></div>
+          <h3>Visa & Passport</h3>
+          <p>Guidance on documentation, appointment scheduling and form filling support.</p>
+          <ul>
+            <li>Tourist / Business visa guidance</li>
+            <li>New / Renewal passport assistance</li>
+            <li>Form & document checklist</li>
+          </ul>
+        </div>
+
+        <div class="card service-card">
+          <div class="icon-circle"><i class="fa-solid fa-taxi"></i></div>
+          <h3>Cab Booking</h3>
+          <p>Airport pick-up & drop, outstation trips, local sightseeing and corporate travel.</p>
+          <ul>
+            <li>Sedan / SUV / Tempo Traveller</li>
+            <li>Driver & vehicle details in advance</li>
+            <li>Day-wise or km-wise packages</li>
+          </ul>
+        </div>
+
+        <div class="card service-card">
+          <div class="icon-circle"><i class="fa-solid fa-suitcase-rolling"></i></div>
+          <h3>Custom Travel Planning</h3>
+          <p>You tell us your dates & budget, we design the full travel plan with bookings.</p>
+          <ul>
+            <li>Family trips & honeymoons</li>
+            <li>Corporate & group tours</li>
+            <li>Hotel & transfer coordination</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= WHY US =============== -->
+  <section class="section section-alt" id="why-us">
+    <div class="container">
+      <div class="section-head">
+        <h2>Why Choose <span class="highlight">A S Tour & Travels</span></h2>
+        <p>We focus on personal support, not just automated apps.</p>
+      </div>
+
+      <div class="grid why-grid">
+        <div class="card">
+          <h3><i class="fa-solid fa-headset"></i> Personal Assistance</h3>
+          <p>Direct call & WhatsApp support – no chatbots. Real person understanding your need and budget.</p>
+        </div>
+        <div class="card">
+          <h3><i class="fa-solid fa-indian-rupee-sign"></i> Multiple Fare Options</h3>
+          <p>We share different options (timing + price) so you can choose what suits you best.</p>
+        </div>
+        <div class="card">
+          <h3><i class="fa-solid fa-file-circle-check"></i> Documentation Help</h3>
+          <p>For visa & passport, we guide on required documents & common mistakes.</p>
+        </div>
+        <div class="card">
+          <h3><i class="fa-solid fa-check-double"></i> End-to-End Handling</h3>
+          <p>From enquiry to bookings to sharing tickets and reminders – everything managed in one place.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PROCESS =============== -->
+  <section class="section" id="process">
+    <div class="container">
+      <div class="section-head">
+        <h2>Simple 3-Step <span class="highlight">Booking Process</span></h2>
+      </div>
+      <div class="process-grid">
+        <div class="process-step">
+          <div class="step-number">1</div>
+          <h3>Share Your Plan</h3>
+          <p>Send us your dates, route, number of travellers and basic requirements on WhatsApp or form.</p>
+        </div>
+        <div class="process-step">
+          <div class="step-number">2</div>
+          <h3>Get Best Options</h3>
+          <p>We send you multiple options with timings and indicative fares. You choose what you like.</p>
+        </div>
+        <div class="process-step">
+          <div class="step-number">3</div>
+          <h3>Confirm & Receive Tickets</h3>
+          <p>After your confirmation & payment, we issue tickets and share everything on WhatsApp / email.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CONTACT / LEAD FORM =============== -->
+  <section class="section section-alt" id="contact">
+    <div class="container contact-container">
+      <div class="contact-left">
+        <h2>Ready to <span class="highlight">Plan Your Trip?</span></h2>
+        <p>Fill this form and we will connect with you on call or WhatsApp as soon as possible.</p>
+
+        <div class="contact-details">
+          <div><i class="fa-solid fa-phone"></i> <strong>Call:</strong> <a href="tel:8602837299">8602837299</a></div>
+          <div><i class="fa-brands fa-whatsapp"></i> <strong>WhatsApp:</strong> <a href="https://wa.me/918602837299" target="_blank">8602837299</a></div>
+          <div><i class="fa-solid fa-envelope"></i> <strong>Email:</strong> <a href="mailto:A.stourandtravels@yahoo.com">A.stourandtravels@yahoo.com</a></div>
+        </div>
+
+        <div class="contact-badges">
+          <span><i class="fa-solid fa-lock"></i> Your details are kept private</span>
+          <span><i class="fa-solid fa-clock"></i> Fast response during working hours</span>
+        </div>
+      </div>
+
+      <div class="contact-right">
+        <div class="card">
+          <h3>Get a Travel Quote</h3>
+          <form id="leadForm" class="form">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Full Name*</label>
+                <input type="text" id="name" required placeholder="Your name" />
+              </div>
+              <div class="form-group">
+                <label for="phone">Mobile Number*</label>
+                <input type="tel" id="phone" required placeholder="10-digit mobile number" />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="email">Email (optional)</label>
+                <input type="email" id="email" placeholder="you@example.com" />
+              </div>
+              <div class="form-group">
+                <label for="service">Service Needed*</label>
+                <select id="service" required>
+                  <option value="">Select</option>
+                  <option>Flight Ticket</option>
+                  <option>Railway Ticket</option>
+                  <option>Bus Ticket</option>
+                  <option>Visa</option>
+                  <option>Passport</option>
+                  <option>Cab Booking</option>
+                  <option>Complete Tour Package</option>
+                  <option>Other</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="travel-date">Travel Date (if decided)</label>
+                <input type="date" id="travel-date" />
+              </div>
+              <div class="form-group">
+                <label for="travellers">Number of Travellers</label>
+                <input type="number" id="travellers" min="1" placeholder="e.g. 2" />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="message">Trip Details / Requirements*</label>
+              <textarea id="message" rows="4" required placeholder="From - To, dates, preferences etc."></textarea>
+            </div>
+
+            <button type="submit" class="btn full-width">
+              Submit Enquiry
+            </button>
+            <p class="form-note">
+              After submitting, we may also ping you on WhatsApp for faster communication.
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FOOTER =============== -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <div class="footer-col">
+        <div class="logo">
+          <span class="logo-mark">AS</span>
+          <div class="logo-text">
+            <div class="logo-title">A S Tour & Travels</div>
+            <div class="logo-sub">Complete Travel Services</div>
+          </div>
+        </div>
+        <p class="footer-text">
+          We help you with hassle-free bookings for flights, trains, buses, visa, passport and cabs – with personal support on every step.
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="#services">Services</a></li>
+          <li><a href="#why-us">Why Us</a></li>
+          <li><a href="#process">How It Works</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul class="footer-links">
+          <li>Flight Tickets</li>
+          <li>Railway Tickets</li>
+          <li>Bus Tickets</li>
+          <li>Visa & Passport</li>
+          <li>Cab Booking</li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul class="footer-links">
+          <li><i class="fa-solid fa-phone"></i> 8602837299</li>
+          <li><i class="fa-brands fa-whatsapp"></i> 8602837299</li>
+          <li><i class="fa-solid fa-envelope"></i> A.stourandtravels@yahoo.com</li>
+        </ul>
+        <small class="admin-link">
+          <a href="admin.html">Admin Login</a>
+        </small>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <span>© <span id="year"></span> A S Tour & Travels. All rights reserved.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp Button -->
+  <a href="https://wa.me/918602837299?text=Hi%20A%20S%20Tour%20and%20Travels" class="whatsapp-float" target="_blank">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <script src="script.js"></script>
+</body>
+</html>
